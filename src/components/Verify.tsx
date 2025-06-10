@@ -88,7 +88,7 @@ const Verify: React.FC = () => {
 
   const handleResendCode = async () => {
     if (!email) {
-      setError('Veuillez saisir votre adresse email');
+      setError('Please enter your email address');
       return;
     }
     
@@ -99,12 +99,12 @@ const Verify: React.FC = () => {
       const response = await authService.resendVerification(email);
       
       if (response.success) {
-        setSuccess(response.message || 'Code de vérification renvoyé avec succès !');
+        setSuccess(response.message || 'Verification code resent successfully!');
       } else {
-        setError(response.message || 'Échec de l\'envoi du code de vérification. Veuillez réessayer.');
+        setError(response.message || 'Failed to send verification code. Please try again.');
       }
     } catch (err) {
-      setError('Une erreur inattendue est survenue. Veuillez réessayer plus tard.');
+      setError('An unexpected error occurred. Please try again later.');
       console.error('Resend verification error:', err);
     } finally {
       setResendLoading(false);
@@ -124,12 +124,12 @@ const Verify: React.FC = () => {
           <VerifiedUserIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Vérifiez votre email
+          Verify your email
         </Typography>
         
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1, mb: 2, textAlign: 'center' }}>
-          Nous avons envoyé un code de vérification à votre adresse email.
-          Veuillez le saisir ci-dessous pour vérifier votre compte.
+          We have sent a verification code to your email address.
+          Please enter it below to verify your account.
         </Typography>
         
         {error && (
@@ -152,7 +152,7 @@ const Verify: React.FC = () => {
                 required
                   fullWidth
                   id="email"
-                label="Votre Email"
+                label="Your Email"
                   name="email"
                   autoComplete="email"
                   value={email}
@@ -188,7 +188,7 @@ const Verify: React.FC = () => {
                 color="success"
                 disabled={loading}
               >
-                {loading ? <CircularProgress size={24} color="inherit" /> : 'Vérifier'}
+                {loading ? <CircularProgress size={24} color="inherit" /> : 'Verify'}
               </Button>
               
               <Grid container>
@@ -199,12 +199,12 @@ const Verify: React.FC = () => {
                     disabled={resendLoading || !email}
                     sx={{ textTransform: 'none' }}
                   >
-                    {resendLoading ? <CircularProgress size={16} /> : 'Renvoyer le code de vérification'}
+                    {resendLoading ? <CircularProgress size={16} /> : 'Resend verification code'}
                   </Button>
                 </Grid>
                 <Grid item>
                   <Link component={RouterLink} to="/login" variant="body2">
-                    Retour à la connexion
+                    Back to login
                   </Link>
                 </Grid>
               </Grid>
