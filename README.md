@@ -22,7 +22,7 @@ A full-stack authentication application with React, TypeScript, Material-UI, Nod
 ## Project Structure
 
 ```
-auth-app/
+2FA/
   ├── public/                # Frontend public assets
   ├── src/                   # Frontend source code
   │   ├── components/        # React components
@@ -104,6 +104,3 @@ npm run dev
   - SendGrid for email delivery
   - bcrypt for password hashing
 
-## Customization
-
-You can customize the theme by modifying the `theme` object in the `App.tsx` file. 
