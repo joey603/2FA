@@ -72,8 +72,8 @@ npm install
 # MONGODB_URI=mongodb+srv://surveyprosce:NewPassword@cluster0.so2cvlj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 # JWT_SECRET=SecretKeyJWT
 # JWT_EXPIRE=30d
-# SENDGRID_API_KEY=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
-# FROM_EMAIL=surveyprosce@gmail.com
+# SENDGRID_API_KEY=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
+# FROM_EMAIL=surveyflowsce@gmail.com
 # NODE_ENV=development
 
 # Start the backend server
