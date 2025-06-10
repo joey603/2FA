@@ -103,21 +103,29 @@ const Login: React.FC = () => {
         password
       });
       
+      // Log the response for debugging
+      console.log('Login response:', response);
+      
       // Handle response
       if (response.success && response.token) {
         // Redirect to home or dashboard page
         navigate('/');
       } else {
-        // Check if the error is due to unverified email
-        if (response.message && response.message.includes('verify your email')) {
-          setError('Your account is not verified. Please verify your email to continue.');
+        const errorMessage = response.message || response.error || '';
+        
+        // If the message contains verification or invalid credentials
+        if (
+          errorMessage.toLowerCase().includes('verify') ||
+          errorMessage.toLowerCase().includes('not verified') ||
+          errorMessage.toLowerCase().includes('account not verified')
+        ) {
+          // Account not verified
+          setError('Your account is not verified. Please verify your email before logging in.');
           
-          // Redirect to verification page after 2 seconds
-          setTimeout(() => {
-            navigate('/verify', { state: { email } });
-          }, 2000);
+          // Redirect to verification page immediately
+          navigate('/verify', { state: { email } });
         } else {
-          setError(response.message || 'Connection failed. Please check your credentials.');
+          setError(errorMessage || 'Invalid email or password. Please check your credentials and try again.');
         }
       }
     } catch (err) {

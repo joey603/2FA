@@ -98,7 +98,7 @@ exports.login = async (req, res, next) => {
 
     // Check if user has verified their email
     if (!user.isVerified) {
-      return next(new ErrorResponse('Please verify your email to login', 401));
+      return next(new ErrorResponse('Account not verified. Please verify your email to login.', 401));
     }
 
     // Create and send token

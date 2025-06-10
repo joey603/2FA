@@ -87,6 +87,7 @@ export interface AuthResponse {
   success: boolean;
   token?: string;
   message?: string;
+  error?: string;
   user?: {
     id: string;
     firstName: string;
@@ -131,7 +132,12 @@ const authService = {
       return response.data;
     } catch (error: any) {
       if (error.response) {
-        return error.response.data;
+        // Make sure to get error message from both possible places
+        const errorData = error.response.data;
+        return { 
+          success: false, 
+          message: errorData.error || errorData.message || error.message || 'Login failed'
+        };
       }
       return { 
         success: false, 
