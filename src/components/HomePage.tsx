@@ -218,7 +218,14 @@ const HomePage: React.FC = () => {
 
         <Grid container spacing={3} sx={{ mt: 2 }}>
           <Grid item xs={12} md={6}>
-            <Card sx={{ height: '100%' }}>
+            <Card sx={{ 
+              height: '100%',
+              transition: 'transform 0.3s, box-shadow 0.3s',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+                boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+              }
+            }}>
               <CardHeader
                 avatar={<EmailIcon color="primary" />}
                 title="Email Verification"
@@ -252,7 +259,14 @@ const HomePage: React.FC = () => {
           </Grid>
           
           <Grid item xs={12} md={6}>
-            <Card sx={{ height: '100%' }}>
+            <Card sx={{ 
+              height: '100%',
+              transition: 'transform 0.3s, box-shadow 0.3s',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+                boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+              }
+            }}>
               <CardHeader
                 avatar={<VpnKeyIcon color="primary" />}
                 title="Secure Authentication"
@@ -292,7 +306,13 @@ const HomePage: React.FC = () => {
           </Grid>
           
           <Grid item xs={12}>
-            <Card>
+            <Card sx={{ 
+              transition: 'transform 0.3s, box-shadow 0.3s',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+                boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+              }
+            }}>
               <CardHeader
                 avatar={<SupervisorAccountIcon color="primary" />}
                 title="Learning Objectives"
