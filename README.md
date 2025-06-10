@@ -70,7 +70,7 @@ npm install
 # Create .env file with the following variables:
 # PORT=5001
 # MONGODB_URI=mongodb+srv://surveyprosce:NewPassword@cluster0.so2cvlj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-# JWT_SECRET=votre_clé_secrète_pour_jwt
+# JWT_SECRET=SecretKeyJWT
 # JWT_EXPIRE=30d
 # SENDGRID_API_KEY=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
 # FROM_EMAIL=surveyprosce@gmail.com
