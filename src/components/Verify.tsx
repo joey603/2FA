@@ -24,6 +24,7 @@ const Verify: React.FC = () => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const [resendLoading, setResendLoading] = useState(false);
+  const [verified, setVerified] = useState(false);
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -69,6 +70,7 @@ const Verify: React.FC = () => {
       
       if (response.success) {
         setSuccess(response.message || 'Email verified successfully! You can now login.');
+        setVerified(true);
         
         // Redirect to login page after successful verification
         setTimeout(() => {
@@ -100,6 +102,10 @@ const Verify: React.FC = () => {
       
       if (response.success) {
         setSuccess(response.message || 'Verification code resent successfully!');
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSuccess('');
+        }, 5000);
       } else {
         setError(response.message || 'Failed to send verification code. Please try again.');
       }
@@ -144,7 +150,7 @@ const Verify: React.FC = () => {
           </Alert>
         )}
         
-        {!success && (
+        {!verified && (
           <>
             <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1, width: '100%' }}>
                 <TextField
